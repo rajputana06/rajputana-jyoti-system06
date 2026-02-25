@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajputana Jyoti System06 | Extreme Animated</title>
+    <style>
+        :root {
+            --neon-green: #39FF14;
+            --cyber-blue: #00f2ff;
+            --glass: rgba(0, 45, 120, 0.75);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000; color: white; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+
+        /* 1. FIXED BACKGROUND PHOTO */
+        .master-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('apni-photo.jpg') no-repeat center center;
+            background-size: cover; z-index: -40;
+        }
+
+        /* 2. EXTREME ANIMATION ENGINE (Stars, Satellites, Lines) */
+        .animation-engine { position: fixed; top: 0; width: 100%; height: 100%; z-index: -30; pointer-events: none; }
+        
+        /* Fast Neon Lines */
+        .fast-line {
+            position: absolute; background: linear-gradient(90deg, transparent, var(--neon-green), var(--cyber-blue), transparent);
+            height: 4px; animation: dash 1s linear infinite;
+        }
+        @keyframes dash { 0% { transform: translateX(-100%); } 100% { transform: translateX(100vw); } }
+
+        /* Shooting Stars */
+        .shooting-star {
+            position: absolute; width: 3px; height: 250px;
+            background: linear-gradient(to top, #fff, transparent);
+            animation: fall 1.5s linear infinite;
+        }
+        @keyframes fall { 0% { transform: translate(100vw, -10vh) rotate(-45deg); opacity: 1; } 100% { transform: translate(-20vw, 120vh) rotate(-45deg); opacity: 0; } }
+
+        /* Hyper Snake/Satellite */
+        .kite-snake {
+            position: absolute; width: 220px; height: 220px;
+            border: 6px solid transparent; border-top-color: #ff0000; border-right-color: #00ff00; border-bottom-color: #0000ff; border-left-color: #ffff00;
+            border-radius: 50%; filter: blur(2px) drop-shadow(0 0 45px var(--neon-green));
+            animation: snakeMove 6s linear infinite;
+        }
+        @keyframes snakeMove { 0% { top: 15%; left: -15%; } 50% { top: 70%; left: 50%; } 100% { top: 15%; left: 115%; } }
+
+        /* 3. HEADER & LOGO ANIMATION */
+        header { 
+            position: fixed; top: 0; width: 100%; height: 145px; 
+            background: var(--glass); backdrop-filter: blur(40px); 
+            display: flex; align-items: center; justify-content: space-between; 
+            padding: 0 50px; border-bottom: 5px solid var(--neon-green); z-index: 1000; 
+        }
+        .rjs-logo-box {
+            width: 105px; height: 105px; border: 4px solid var(--neon-green); 
+            background: black; display: flex; align-items: center; justify-content: center;
+            animation: logoPulse 2s infinite alternate;
+        }
+        @keyframes logoPulse { from { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); } to { transform: scale(1.1); box-shadow: 0 0 35px var(--cyber-blue); } }
+        .rainbow-title { font-size: 1.8rem; font-weight: 900; animation: rainbow 0.4s linear infinite; text-transform: uppercase; text-align: center; flex-grow: 1; }
+        @keyframes rainbow { 0% { color: red; } 33% { color: lime; } 66% { color: blue; } 100% { color: red; } }
+
+        /* 4. VISION ROADMAP (JUMPING & GLOWING RESTORED) */
+        .roadmap { padding: 220px 10% 100px; }
+        .vision-block { 
+            margin-bottom: 650px; padding: 60px; background: var(--glass); 
+            border-left: 15px solid var(--neon-green); border-radius: 0 60px 60px 0; 
+            animation: jump 4s infinite ease-in-out, blockGlow 3s infinite alternate; 
+        }
+        @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-50px); } }
+        @keyframes blockGlow { from { box-shadow: 0 0 10px transparent; } to { box-shadow: 0 0 30px var(--neon-green); } }
+
+        .active-tag { color: var(--neon-green); font-weight: 900; text-shadow: 0 0 15px var(--neon-green); animation: pulseActive 0.8s infinite; }
+        .coming-tag { background: red; color: white; padding: 6px 15px; font-weight: bold; animation: blinkSoon 0.5s infinite; border-radius: 5px; }
+        @keyframes pulseActive { 50% { opacity: 0.4; } }
+        @keyframes blinkSoon { 50% { opacity: 0; } }
+
+        /* 5. FOOTER (MCA VERIFIED & CONTACT) */
+        footer { 
+            background: rgba(0, 20, 60, 0.98); padding: 50px 40px; 
+            border-top: 5px solid var(--neon-green); display: flex; 
+            justify-content: space-between; align-items: center; flex-wrap: wrap;
+        }
+        .footer-col { flex: 1; min-width: 250px; }
+        .trust-seal-box { text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .trust-seal {
+            width: 80px; height: 80px; border: 4px solid gold; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 20px gold; margin-bottom: 10px; animation: trustPulse 2s infinite;
+        }
+        @keyframes trustPulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+    </style>
+</head>
+<body>
+
+    <div class="master-bg"></div>
+
+    <div class="animation-engine">
+        <div class="fast-line" style="top:15%; width:400px; animation-delay:0s;"></div>
+        <div class="fast-line" style="top:45%; width:600px; animation-delay:0.5s;"></div>
+        <div class="fast-line" style="top:75%; width:300px; animation-delay:1s;"></div>
+        <div class="kite-snake"></div>
+        <div class="shooting-star" style="left:15%;"></div>
+        <div class="shooting-star" style="left:85%; animation-delay:0.8s;"></div>
+    </div>
+
+    <header>
+        <div class="rjs-logo-box">
+            <img src="RJS_JPG.jpg" style="width:90%; height:90%; object-fit: contain;" alt="RJS Logo">
+        </div>
+        <div class="rainbow-title">RAJPUTANAJYOTI SYSTEM06 (OPC) PRIVATE LIMITED</div>
+        <div style="width:95px;">
+            <img src="MCA_JPG.jpg" style="width:100%; animation: rotate-mca 5s linear infinite; filter: drop-shadow(0 0 15px gold);" alt="MCA Logo">
+        </div>
+    </header>
+
+    <div class="roadmap">
+        <div class="vision-block"><h2>A. Jyoti Agent <span class="active-tag">[ACTIVE]</span></h2><p>Advanced AI Voice Assistant powered by Energy Intelligence.</p></div>
+        <div class="vision-block"><h2>B. Voice Cloning <span class="coming-tag">COMING SOON</span></h2><p>Neural synthesis for hyper-realistic custom voices.</p></div>
+        <div class="vision-block"><h2>C. RJS E-Commerce <span class="coming-tag">COMING SOON</span></h2><p>Global trading engine for futuristic products.</p></div>
+        <div class="vision-block"><h2>D. Smart Electronics <span class="coming-tag">COMING SOON</span></h2><p>Innovative next-gen hardware gadgets and design.</p></div>
+        <div class="vision-block"><h2>E. Fuelless Generators <span class="coming-tag">COMING SOON</span></h2><p>Clean energy revolution through fuel-free generation.</p></div>
+        <div class="vision-block"><h2>F. Flying Cars <span class="coming-tag">COMING SOON</span></h2><p>Future of aerospace mobility and urban transport.</p></div>
+        <div class="vision-block"><h2>G. Multi-Server Cloud <span class="coming-tag">COMING SOON</span></h2><p>Secure global data infrastructure.</p></div>
+        <div class="vision-block"><h2>H. Wireless Power <span class="coming-tag">COMING SOON</span></h2><p>Tesla-inspired cable-free electricity vision.</p></div>
+        <div class="vision-block"><h2>I. Magnetic Levitation <span class="coming-tag">COMING SOON</span></h2><p>Zero-friction transport systems and mobility.</p></div>
+        <div class="vision-block"><h2>J. Global IT Ecosystem <span class="coming-tag">COMING SOON</span></h2><p>Full suite of software and AI services.</p></div>
+    </div>
+
+    <footer>
+        <div class="footer-col">
+            <h3 style="color:var(--neon-green)">Office Address</h3>
+            <p>Bhunas, Sahara, Gangapur, Bhilwara, Rajasthan ( india )</p>
+            <p>PIN Code: 311802</p>
+        </div>
+
+        <div class="footer-col trust-seal-box">
+            <div class="trust-seal">
+                <span style="color:gold; font-size: 2.5rem;">✔</span>
+            </div>
+            <h3 style="color:gold;">MCA VERIFIED</h3>
+            <p style="color:var(--cyber-blue); font-weight: bold;">CIN: U58202RJ2026OPC111757</p>
+            <p style="font-size: 0.8rem; opacity: 0.8;">Ministry of Corporate Affairs Govt of India</p>
+        </div>
+
+        <div class="footer-col" style="text-align:right;">
+            <h3 style="color:var(--neon-green)">Contact</h3>
+            <p>Email: <a href="mailto:Rjs.rajputanajyotisystem06@gmail.com" style="color:var(--cyber-blue); text-decoration:none;">Rjs.rajputanajyotisystem06@gmail.com</a></p>
+            <p>© 2026 RajputanaJyoti System06 (OPC) Pvt Ltd</p>
+        </div>
+    </footer>
+
+    <style>@keyframes rotate-mca { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }</style>
+</body>
+</html>s
