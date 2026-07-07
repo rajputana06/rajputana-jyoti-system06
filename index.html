@@ -4,95 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajputana Jyoti System06 (opc) private limited official information</title>
+    
+    <!-- GOOGLE SEARCH LOGO CORRECTION (Replaces Default Globe/Earth Icon) -->
+    <link rel="icon" href="assets/images/RJS.png" type="image/png" sizes="96x96">
+    <link rel="shortcut icon" href="assets/images/RJS.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/RJS.png">
+
     <style>
         :root {
             --neon-green: #39FF14;
             --cyber-blue: #00f2ff;
-            --glass: rgba(0, 45, 120, 0.75);
+            --glass: rgba(0, 15, 45, 0.75);
+            --glass-bright: rgba(0, 45, 120, 0.85);
+            --neon-glow: 0 0 20px var(--neon-green);
+            --cyber-glow: 0 0 20px var(--cyber-blue);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #000; color: white; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; }
+        body { background: #000; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
         /* 1. FIXED BACKGROUND PHOTO */
         .master-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('apni-photo.jpg') no-repeat center center;
-            background-size: cover; z-index: -40;
+            background: url('assets/images/RJS.png') no-repeat center center;
+            background-size: cover; filter: brightness(0.25) contrast(1.1); z-index: -40;
         }
 
-        /* 2. EXTREME ANIMATION ENGINE (Stars, Satellites, Lines) */
+        /* 2. EXTREME ANIMATION ENGINE */
         .animation-engine { position: fixed; top: 0; width: 100%; height: 100%; z-index: -30; pointer-events: none; }
-        
-        /* Fast Neon Lines */
         .fast-line {
             position: absolute; background: linear-gradient(90deg, transparent, var(--neon-green), var(--cyber-blue), transparent);
-            height: 4px; animation: dash 1s linear infinite;
+            height: 3px; animation: dash 2.5s linear infinite;
         }
         @keyframes dash { 0% { transform: translateX(-100%); } 100% { transform: translateX(100vw); } }
 
-        /* Shooting Stars */
         .shooting-star {
-            position: absolute; width: 3px; height: 250px;
+            position: absolute; width: 2px; height: 180px;
             background: linear-gradient(to top, #fff, transparent);
-            animation: fall 1.5s linear infinite;
+            animation: fall 2s linear infinite; opacity: 0.6;
         }
         @keyframes fall { 0% { transform: translate(100vw, -10vh) rotate(-45deg); opacity: 1; } 100% { transform: translate(-20vw, 120vh) rotate(-45deg); opacity: 0; } }
 
-        /* Hyper Snake/Satellite */
         .kite-snake {
-            position: absolute; width: 220px; height: 220px;
-            border: 6px solid transparent; border-top-color: #ff0000; border-right-color: #00ff00; border-bottom-color: #0000ff; border-left-color: #ffff00;
-            border-radius: 50%; filter: blur(2px) drop-shadow(0 0 45px var(--neon-green));
-            animation: snakeMove 6s linear infinite;
+            position: absolute; width: 250px; height: 250px;
+            border: 4px solid transparent; border-top-color: var(--neon-green); border-bottom-color: var(--cyber-blue);
+            border-radius: 50%; filter: blur(1px) drop-shadow(0 0 30px var(--cyber-blue));
+            animation: snakeMove 12s linear infinite;
         }
-        @keyframes snakeMove { 0% { top: 15%; left: -15%; } 50% { top: 70%; left: 50%; } 100% { top: 15%; left: 115%; } }
+        @keyframes snakeMove { 0% { top: 10%; left: -20%; transform: rotate(0deg); } 50% { top: 60%; left: 40%; transform: rotate(180deg); } 100% { top: 10%; left: 120%; transform: rotate(360deg); } }
 
         /* 3. HEADER & LOGO ANIMATION */
         header { 
-            position: fixed; top: 0; width: 100%; height: 145px; 
-            background: var(--glass); backdrop-filter: blur(40px); 
+            position: fixed; top: 0; width: 100%; height: 110px; 
+            background: var(--glass); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             display: flex; align-items: center; justify-content: space-between; 
-            padding: 0 50px; border-bottom: 5px solid var(--neon-green); z-index: 1000; 
+            padding: 0 40px; border-bottom: 3px solid var(--neon-green); z-index: 999; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .rjs-logo-box {
-            width: 105px; height: 105px; border: 4px solid var(--neon-green); 
+            width: 80px; height: 80px; border: 3px solid var(--neon-green); 
             background: black; display: flex; align-items: center; justify-content: center;
+            border-radius: 12px; overflow: hidden;
             animation: logoPulse 2s infinite alternate;
         }
-        @keyframes logoPulse { from { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); } to { transform: scale(1.1); box-shadow: 0 0 35px var(--cyber-blue); } }
-        .rainbow-title { font-size: 1.8rem; font-weight: 900; animation: rainbow 0.4s linear infinite; text-transform: uppercase; text-align: center; flex-grow: 1; }
-        @keyframes rainbow { 0% { color: red; } 33% { color: lime; } 66% { color: blue; } 100% { color: red; } }
+        @keyframes logoPulse { from { transform: scale(1); box-shadow: 0 0 15px var(--neon-green); } to { transform: scale(1.05); box-shadow: 0 0 30px var(--cyber-blue); } }
+        
+        .rainbow-title { font-size: 1.5rem; font-weight: 900; animation: rainbow 6s linear infinite; text-transform: uppercase; text-align: center; flex-grow: 1; letter-spacing: 1px; }
+        @keyframes rainbow { 
+            0% { color: #fff; text-shadow: 0 0 10px var(--neon-green); } 
+            50% { color: #fff; text-shadow: 0 0 20px var(--cyber-blue); } 
+            100% { color: #fff; text-shadow: 0 0 10px var(--neon-green); } 
+        }
 
-        /* 4. VISION ROADMAP (JUMPING & GLOWING RESTORED) */
-        .roadmap { padding: 220px 10% 100px; }
+        .mca-logo-box { width: 75px; display: flex; align-items: center; justify-content: center; }
+        .mca-logo-box img { width: 100%; animation: rotate-mca 6s linear infinite; filter: drop-shadow(0 0 12px gold); }
+        @keyframes rotate-mca { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+
+        /* 4. COMPANY PROFILE INTRO SECTIONS */
+        .company-intro-container { padding: 160px 10% 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .intro-card { background: var(--glass); padding: 35px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 35px rgba(0,0,0,0.4); backdrop-filter: blur(15px); }
+        .intro-card h2 { color: var(--cyber-blue); margin-bottom: 15px; font-size: 1.6rem; border-bottom: 2px solid var(--neon-green); padding-bottom: 8px; display: inline-block; }
+        .intro-card p { font-size: 1.05rem; line-height: 1.6; opacity: 0.9; color: #e0e8ff; }
+
+        /* 5. VISION ROADMAP */
+        .roadmap { padding: 40px 10% 100px; }
+        .roadmap-header { text-align: center; font-size: 2rem; color: #fff; text-transform: uppercase; margin-bottom: 40px; text-shadow: var(--cyber-glow); letter-spacing: 2px; }
         .vision-block { 
-            margin-bottom: 650px; padding: 60px; background: var(--glass); 
-            border-left: 15px solid var(--neon-green); border-radius: 0 60px 60px 0; 
-            animation: jump 4s infinite ease-in-out, blockGlow 3s infinite alternate; 
+            margin-bottom: 50px; padding: 40px; background: var(--glass); 
+            border-left: 10px solid var(--neon-green); border-radius: 0 30px 30px 0; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            transition: 0.4s ease; border-top: 1px solid rgba(255,255,255,0.05); border-right: 1px solid rgba(255,255,255,0.05);
         }
-        @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-50px); } }
-        @keyframes blockGlow { from { box-shadow: 0 0 10px transparent; } to { box-shadow: 0 0 30px var(--neon-green); } }
+        .vision-block:hover { transform: translateX(15px); background: var(--glass-bright); box-shadow: 0 0 30px rgba(0,242,255,0.2); border-left-color: var(--cyber-blue); }
+        .vision-block h2 { font-size: 1.5rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+        .vision-block p { font-size: 1.1rem; opacity: 0.85; margin-bottom: 20px; color: #d0daf0; }
+        
+        /* Interactive Buttons */
+        .explore-btn {
+            background: transparent; color: #fff; border: 2px solid var(--cyber-blue);
+            padding: 10px 24px; font-weight: bold; border-radius: 30px; cursor: pointer;
+            transition: 0.3s ease; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;
+            display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 10px rgba(0,242,255,0.1);
+        }
+        .explore-btn:hover { background: var(--cyber-blue); color: #000; box-shadow: var(--cyber-glow); transform: translateY(-2px); }
 
-        .active-tag { color: var(--neon-green); font-weight: 900; text-shadow: 0 0 15px var(--neon-green); animation: pulseActive 0.8s infinite; }
-        .coming-tag { background: red; color: white; padding: 6px 15px; font-weight: bold; animation: blinkSoon 0.5s infinite; border-radius: 5px; }
-        @keyframes pulseActive { 50% { opacity: 0.4; } }
-        @keyframes blinkSoon { 50% { opacity: 0; } }
+        .active-tag { color: var(--neon-green); font-weight: 900; text-shadow: var(--neon-glow); animation: pulseActive 1s infinite; font-size: 1rem; }
+        .coming-tag { background: #ff0055; color: white; padding: 4px 12px; font-weight: bold; animation: blinkSoon 1s infinite; border-radius: 6px; font-size: 0.85rem; box-shadow: 0 0 15px #ff0055; }
+        @keyframes pulseActive { 50% { opacity: 0.5; } }
+        @keyframes blinkSoon { 50% { opacity: 0.3; } }
 
-        /* 5. FOOTER (MCA VERIFIED & CONTACT) */
+        /* 6. DYNAMIC AI CHAT WIDGET */
+        .ai-chat-widget {
+            position: fixed; bottom: 30px; right: 30px; z-index: 10000;
+            display: flex; flex-direction: column; align-items: flex-end;
+        }
+        .chat-trigger {
+            width: 65px; height: 65px; background: #000; border: 3px solid var(--cyber-blue);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: var(--cyber-glow); transition: 0.3s ease;
+        }
+        .chat-trigger:hover { transform: scale(1.1) rotate(15deg); box-shadow: var(--neon-glow); border-color: var(--neon-green); }
+        .chat-trigger svg { width: 32px; height: 32px; fill: #fff; }
+        
+        .chat-window {
+            width: 380px; height: 500px; background: rgba(0, 10, 30, 0.95);
+            border: 2px solid var(--cyber-blue); border-radius: 20px; display: none;
+            flex-direction: column; overflow: hidden; box-shadow: 0 20px 50px rgba(0,242,255,0.3);
+            margin-bottom: 20px; backdrop-filter: blur(20px);
+        }
+        .chat-header {
+            background: linear-gradient(135deg, rgba(0,45,120,0.9), rgba(0,15,45,0.9));
+            padding: 15px 20px; display: flex; align-items: center; justify-content: space-between;
+            border-bottom: 2px solid var(--cyber-blue);
+        }
+        .chat-header h3 { font-size: 1.1rem; color: #fff; display: flex; align-items: center; gap: 10px; }
+        .chat-header h3::before { content: ''; display: inline-block; width: 10px; height: 10px; background: var(--neon-green); border-radius: 50%; box-shadow: var(--neon-glow); }
+        .close-chat { background: transparent; border: none; color: #fff; font-size: 1.4rem; cursor: pointer; opacity: 0.7; transition: 0.2s; }
+        .close-chat:hover { opacity: 1; color: #ff0055; }
+        
+        .chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+        .msg { max-width: 80%; padding: 12px 16px; border-radius: 16px; font-size: 0.95rem; line-height: 1.4; word-wrap: break-word; }
+        .msg.bot { background: rgba(255,255,255,0.08); color: #fff; border-bottom-left-radius: 4px; border: 1px solid rgba(255,255,255,0.05); align-self: flex-start; }
+        .msg.user { background: linear-gradient(135deg, rgba(0,242,255,0.2), rgba(0,45,120,0.4)); color: #fff; border-bottom-right-radius: 4px; border: 1px solid var(--cyber-blue); align-self: flex-end; }
+        
+        .chat-input-area { padding: 15px; display: flex; gap: 10px; border-top: 1px solid rgba(255,255,255,0.1); background: rgba(0,5,15,0.8); }
+        .chat-input-area input {
+            flex: 1; background: rgba(255,255,255,0.05); border: 1px solid rgba(0,242,255,0.3);
+            border-radius: 25px; padding: 12px 20px; color: #fff; font-size: 0.95rem; outline: none;
+            transition: 0.3s;
+        }
+        .chat-input-area input:focus { border-color: var(--cyber-blue); box-shadow: 0 0 10px rgba(0,242,255,0.2); background: rgba(255,255,255,0.08); }
+        .send-btn {
+            background: var(--cyber-blue); border: none; width: 45px; height: 45px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s; box-shadow: var(--cyber-glow);
+        }
+        .send-btn:hover { background: var(--neon-green); box-shadow: var(--neon-glow); transform: scale(1.05); }
+        .send-btn svg { width: 20px; height: 20px; fill: #000; }
+
+        /* Responsive UI Adjustments */
+        @media (max-width: 768px) {
+            header { padding: 0 20px; height: 95px; }
+            .rainbow-title { font-size: 1.1rem; }
+            .rjs-logo-box { width: 65px; height: 65px; }
+            .mca-logo-box { width: 60px; }
+            .company-intro-container { grid-template-columns: 1fr; padding-top: 130px; }
+            .roadmap { padding: 30px 5% 80px; }
+            .chat-window { width: calc(100vw - 40px); right: 20px; bottom: 90px; height: 450px; }
+        }
+
+        /* 7. FOOTER (MCA VERIFIED & CONTACT) */
         footer { 
-            background: rgba(0, 20, 60, 0.98); padding: 50px 40px; 
-            border-top: 5px solid var(--neon-green); display: flex; 
-            justify-content: space-between; align-items: center; flex-wrap: wrap;
+            background: rgba(0, 10, 30, 0.98); padding: 50px 40px; 
+            border-top: 4px solid var(--neon-green); display: flex; 
+            justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 30px;
         }
-        .footer-col { flex: 1; min-width: 250px; }
+        .footer-col { flex: 1; min-width: 260px; }
         .trust-seal-box { text-align: center; display: flex; flex-direction: column; align-items: center; }
         .trust-seal {
-            width: 80px; height: 80px; border: 4px solid gold; border-radius: 50%;
+            width: 75px; height: 75px; border: 3px solid gold; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px gold; margin-bottom: 10px; animation: trustPulse 2s infinite;
+            box-shadow: 0 0 20px gold; margin-bottom: 12px; animation: trustPulse 2.5s infinite;
         }
-        @keyframes trustPulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        @keyframes trustPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        footer p { line-height: 1.6; font-size: 0.95rem; opacity: 0.85; }
+        footer h3 { font-size: 1.2rem; margin-bottom: 15px; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
@@ -100,61 +196,222 @@
     <div class="master-bg"></div>
 
     <div class="animation-engine">
-        <div class="fast-line" style="top:15%; width:400px; animation-delay:0s;"></div>
-        <div class="fast-line" style="top:45%; width:600px; animation-delay:0.5s;"></div>
-        <div class="fast-line" style="top:75%; width:300px; animation-delay:1s;"></div>
+        <div class="fast-line" style="top:20%; width:350px; animation-delay:0s;"></div>
+        <div class="fast-line" style="top:50%; width:500px; animation-delay:0.7s;"></div>
+        <div class="fast-line" style="top:80%; width:400px; animation-delay:1.2s;"></div>
         <div class="kite-snake"></div>
-        <div class="shooting-star" style="left:15%;"></div>
-        <div class="shooting-star" style="left:85%; animation-delay:0.8s;"></div>
+        <div class="shooting-star" style="left:20%;"></div>
+        <div class="shooting-star" style="left:75%; animation-delay:1.1s;"></div>
     </div>
 
     <header>
         <div class="rjs-logo-box">
-            <img src="RJS_JPG.jpg" style="width:90%; height:90%; object-fit: contain;" alt="RJS Logo">
+            <img src="assets/images/RJS.png" style="width:90%; height:90%; object-fit: contain;" alt="RJS Logo">
         </div>
         <div class="rainbow-title">RAJPUTANAJYOTI SYSTEM06 (OPC) PRIVATE LIMITED</div>
-        <div style="width:95px;">
-            <img src="MCA_JPG.jpg" style="width:100%; animation: rotate-mca 5s linear infinite; filter: drop-shadow(0 0 15px gold);" alt="MCA Logo">
+        <div class="mca-logo-box">
+            <img src="MCA_JPG.jpg" alt="MCA Logo" onerror="this.style.display='none'">
         </div>
     </header>
 
+    <!-- PROFESSIONAL ABOUT SECTIONS CONTAINER -->
+    <div class="company-intro-container">
+        <div class="intro-card">
+            <h2>About the Company</h2>
+            <p>Rajputana Jyoti System 06 (OPC) Private Limited is a premier deep-tech innovation and infrastructure enterprise incorporated in Rajasthan, India. Dedicated to engineering future-ready technology, our core competencies span advanced artificial intelligence, next-generation clean energy systems, sovereign network routing, and state-of-the-art automated hardware frameworks designed to empower Digital Bharat.</p>
+        </div>
+        <div class="intro-card">
+            <h2>About This Page</h2>
+            <p>This official corporate communication registry provides an authorized system intelligence summary for RJS System Master Core configurations. Driven by high-throughput sovereign routing infrastructures and accelerated database architectures, this operational matrix serves as the centralized dynamic portal detailing our active pipelines, technical milestones, and future enterprise ecosystems.</p>
+        </div>
+    </div>
+
     <div class="roadmap">
-        <div class="vision-block"><h2>A. Jyoti Agent <span class="active-tag">[ACTIVE SOON]</span></h2><p>Advanced AI Voice Assistant powered by Energy Intelligence .</p></div>
-        <div class="vision-block"><h2>B. Voice Cloning <span class="coming-tag">COMING SOON</span></h2><p>Neural synthesis for hyper-realistic custom voices.</p></div>
-        <div class="vision-block"><h2>C. RJS E-Commerce <span class="coming-tag">COMING SOON</span></h2><p>Global trading engine for futuristic products.</p></div>
-        <div class="vision-block"><h2>D. Smart Electronics <span class="coming-tag">COMING SOON</span></h2><p>Innovative next-gen hardware gadgets and design.</p></div>
-        <div class="vision-block"><h2>E. Fuelless Generators <span class="coming-tag">COMING SOON</span></h2><p>Clean energy revolution through fuel-free generation.</p></div>
-        <div class="vision-block"><h2>F. Flying Cars <span class="coming-tag">COMING SOON</span></h2><p>Future of aerospace mobility and urban transport.</p></div>
-        <div class="vision-block"><h2>G. Multi-Server Cloud <span class="coming-tag">COMING SOON</span></h2><p>Secure global data infrastructure.</p></div>
-        <div class="vision-block"><h2>H. Wireless Power <span class="coming-tag">COMING SOON</span></h2><p>Tesla-inspired cable-free electricity vision.</p></div>
-        <div class="vision-block"><h2>I. Magnetic Levitation <span class="coming-tag">COMING SOON</span></h2><p>Zero-friction transport systems and mobility.</p></div>
-        <div class="vision-block"><h2>J. Global IT Ecosystem <span class="coming-tag">COMING SOON</span></h2><p>Full suite of software and AI services.</p></div>
+        <h1 class="roadmap-header">Core Tech Architecture & Products</h1>
+
+        <div class="vision-block" id="prod-jyoti">
+            <h2>A. Jyoti Agent <span class="active-tag">[ACTIVE SOON]</span></h2>
+            <p>Advanced Multimodal AI Assistant built to deliver intelligent interaction workflows, dynamic context processing, and deep-tech conversational routing for decentralized applications.</p>
+            <button class="explore-btn" onclick="askAI('Tell me details about Jyoti Agent and its current integration status.')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-voice">
+            <h2>B. Voice Cloning <span class="coming-tag">COMING SOON</span></h2>
+            <p>High-fidelity neural network framework engineered for hyper-realistic target synthesis, providing sovereign biometric linguistic customization pipelines.</p>
+            <button class="explore-btn" onclick="askAI('What is the timeline for the Voice Cloning neural system?')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-ecommerce">
+            <h2>C. RJS E-Commerce <span class="coming-tag">COMING SOON</span></h2>
+            <p>A distributed global transaction engine tailored for specialized technical hardware acquisitions, secure equipment procurement, and advanced automated components.</p>
+            <button class="explore-btn" onclick="askAI('Tell me more about the upcoming RJS E-Commerce trading engine.')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-electronics">
+            <h2>D. Smart Electronics <span class="coming-tag">COMING SOON</span></h2>
+            <p>Development and prototyping of intelligent micro-hardware gadgets, precision controllers, and embedded computing peripherals for specialized dynamic workflows.</p>
+            <button class="explore-btn" onclick="askAI('What hardware projects are under the Smart Electronics banner?')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-generators">
+            <h2>E. Fuelless Generators <span class="coming-tag">COMING SOON</span></h2>
+            <p>Clean energy exploration utilizing high-voltage optimization systems, high-efficiency magnetic copper coils, and advanced structural loops designed for zero-emission output.</p>
+            <button class="explore-btn" onclick="askAI('How does the Fuelless Generator technology optimize energy loops?')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-cars">
+            <h2>F. Flying Cars <span class="coming-tag">COMING SOON</span></h2>
+            <p>Conceptual aerospace mobility systems focusing on advanced aerodynamic modeling, autonomous drone navigation matrices, and localized transport scaling.</p>
+            <button class="explore-btn" onclick="askAI('What is the vision behind the RJS Flying Cars aerospace mobility project?')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-cloud">
+            <h2>G. Multi-Server Cloud <span class="coming-tag">COMING SOON</span></h2>
+            <p>High-capacity sovereign server infrastructure designed for secure relational database hosting, profile sync configurations, and zero-latency backend execution.</p>
+            <button class="explore-btn" onclick="askAI('Explain the Multi-Server Cloud data infrastructure and active credits.')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-wireless">
+            <h2>H. Wireless Power <span class="coming-tag">COMING SOON</span></h2>
+            <p>Long-range resonant inductive and electromagnetic transmission matrices inspired by foundational cable-free physical grids for localized industrial power distribution.</p>
+            <button class="explore-btn" onclick="askAI('Tell me about the Wireless Power cable-free transmission research.')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-maglev">
+            <h2>I. Magnetic Levitation <span class="coming-tag">COMING SOON</span></h2>
+            <p>Frictionless linear transport tracks and mobility systems utilizing structural magnetic fields to establish high-speed stabilization solutions.</p>
+            <button class="explore-btn" onclick="askAI('What are the mobility applications of the Magnetic Levitation system?')">Explore Product</button>
+        </div>
+
+        <div class="vision-block" id="prod-it">
+            <h2>J. Global IT Ecosystem <span class="coming-tag">COMING SOON</span></h2>
+            <p>A comprehensive architecture supplying dynamic APIs, Edge microservices, custom full-stack enterprise automation, and secure operational framework deployment.</p>
+            <button class="explore-btn" onclick="askAI('What kind of custom software tools are planned in the Global IT Ecosystem?')">Explore Product</button>
+        </div>
+    </div>
+
+    <!-- DYNAMIC LIVE AI CHAT WIDGET -->
+    <div class="ai-chat-widget">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3>RJS Master AI Agent</h3>
+                <button class="close-chat" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="msg bot">Hello! Welcome to Rajputana Jyoti System 06. I am the Master Core Assistant. How can I assist you with our AI products, core roadmap, or infrastructure updates today?</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="Ask about RJS Core or products..." onkeypress="handleKeyPress(event)">
+                <button class="send-btn" onclick="sendMessage()">
+                    <svg viewBox="0 0 24 24"><path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="chat-trigger" onclick="toggleChat()">
+            <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4M12,18C8.66,18 5.66,16.31 4.04,13.75C4.06,11.08 9.33,9.65 12,9.65C14.67,9.65 19.94,11.08 20.03,13.75C18.41,16.31 15.41,18 12,18Z"/></svg>
+        </div>
     </div>
 
     <footer>
         <div class="footer-col">
-            <h3 style="color:var(--neon-green)">Office Address</h3>
-            <p>Bhunas, Sahara, Gangapur, Bhilwara, Rajasthan ( india )</p>
+            <h3 style="color:var(--neon-green)">Office Headquarters</h3>
+            <p>Bhunas, Sahara, Gangapur, Bhilwara, Rajasthan (India)</p>
             <p>PIN Code: 311802</p>
         </div>
 
         <div class="footer-col trust-seal-box">
             <div class="trust-seal">
-                <span style="color:gold; font-size: 2.5rem;">✔</span>
+                <span style="color:gold; font-size: 2.2rem;">✔</span>
             </div>
             <h3 style="color:gold;">MCA VERIFIED</h3>
-            <p style="color:var(--cyber-blue); font-weight: bold;">CIN: U58202RJ2026OPC111757</p>
-            <p style="font-size: 0.8rem; opacity: 0.8;">Ministry of Corporate Affairs Govt of India</p>
+            <p style="color:var(--cyber-blue); font-weight: bold; letter-spacing: 0.5px;">CIN: U58202RJ2026OPC111757</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 3px;">Ministry of Corporate Affairs ~ Govt of India</p>
         </div>
 
         <div class="footer-col" style="text-align:right;">
-            <h3 style="color:var(--neon-green)">Contact</h3>
+            <h3 style="color:var(--neon-green)">Corporate Contact</h3>
             <p>Email: <a href="mailto:Rjs.rajputanajyotisystem06@gmail.com" style="color:var(--cyber-blue); text-decoration:none;">Rjs.rajputanajyotisystem06@gmail.com</a></p>
             <p>Email: <a href="mailto:rjs06official@rjs-06-opc.com" style="color:var(--cyber-blue); text-decoration:none;">rjs06official@rjs-06-opc.com</a></p>
-            <p>© 2026 RajputanaJyoti System06 (OPC) Pvt Ltd</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.6;">© 2026 RajputanaJyoti System06 (OPC) Pvt Ltd</p>
         </div>
     </footer>
 
-    <style>@keyframes rotate-mca { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }</style>
+    <!-- INTERACTIVE SCRIPT LOGIC CONNECTING TO CLOUDFLARE WORKER ROUTE -->
+    <script>
+        const CLOUDFLARE_WORKER_URL = 'https://websiterjs.sshivkumarsalvi.workers.dev';
+
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            if(chatWindow.style.display === 'flex') {
+                chatWindow.style.display = 'none';
+            } else {
+                chatWindow.style.display = 'flex';
+                document.getElementById('userInput').focus();
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        async function sendMessage() {
+            const inputField = document.getElementById('userInput');
+            const text = inputField.value.trim();
+            if (!text) return;
+
+            appendMessage(text, 'user');
+            inputField.value = '';
+
+            // Loading state element
+            const loadingId = appendMessage('Connecting to RJS Master Core...', 'bot');
+
+            try {
+                // Sending exact structure to Cloudflare Worker Router via POST
+                const response = await fetch(CLOUDFLARE_WORKER_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text, context: "website_interaction" })
+                });
+
+                if (!response.ok) throw new Error('Server connectivity warning.');
+                
+                const data = await response.json();
+                document.getElementById(loadingId).remove();
+                
+                const botReply = data.reply || data.response || JSON.stringify(data);
+                appendMessage(botReply, 'bot');
+            } catch (error) {
+                document.getElementById(loadingId).remove();
+                appendMessage("RJS Node Notice: System is processing inquiries. All projects from Jyoti Agent to Wireless grids are marked as [COMING SOON] or [ACTIVE SOON]. Please connect via official company channels.", 'bot');
+                console.error('Network trace logging:', error);
+            }
+        }
+
+        function appendMessage(text, sender) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const msgDiv = document.createElement('div');
+            const uniqueId = 'msg-' + Date.now() + Math.random().toString(36).substr(2, 4);
+            
+            msgDiv.id = uniqueId;
+            msgDiv.classList.add('msg', sender);
+            msgDiv.innerText = text;
+            
+            messagesContainer.appendChild(msgDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            return uniqueId;
+        }
+
+        // Action when clicking on "Explore Product" buttons
+        function askAI(productQuery) {
+            const chatWindow = document.getElementById('chatWindow');
+            if (chatWindow.style.display !== 'flex') {
+                toggleChat();
+            }
+            document.getElementById('userInput').value = productQuery;
+            sendMessage();
+        }
+    </script>
 </body>
-</html>s
+</html>
