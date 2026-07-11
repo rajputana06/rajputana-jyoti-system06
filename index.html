@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RJS Corporate Infrastructure & Intelligence Search Corps</title>
+    
+    <!-- 👑 ब्राउज़र टैब (Favicon) में पृथ्वी के आइकॉन को RJS लोगो से बदलने के लिए मुख्य नोड्स -->
+    <link rel="icon" type="image/jpeg" href="RJS_JPG.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="RJS_JPG.jpg">
+    <link rel="apple-touch-icon" href="RJS_JPG.jpg">
+
     <style>
         :root {
             --glass-thick-border: rgba(255, 255, 255, 0.65);
@@ -12,7 +18,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* 📸 अपनी फोटो (apni-photo.jpg) अब रिपॉजिटरी के सटीक नाम के साथ पूरे बैकग्राउंड में सेट है */
+        /* 📸 आपकी फोटो (apni-photo.jpg) अब पूरे बैकग्राउंड में 100% कलर्ड और फिक्स्ड रहेगी */
         body { 
             background: url('apni-photo.jpg') no-repeat center center;
             background-size: cover;
@@ -28,7 +34,6 @@
             top: 0; 
             width: 100%; 
             min-height: 145px; 
-            /* 🌍 पृथ्वी की इमेज (earth.jpg) का सटीक फाइल पाथ सेट */
             background: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05)), url('earth.jpg') no-repeat center center;
             background-size: cover;
             backdrop-filter: blur(10px) saturate(160%); 
@@ -44,7 +49,7 @@
             box-shadow: var(--glass-shadow), inset 0 1px 25px rgba(255, 255, 255, 0.3);
         }
 
-        /* --- 3D VIEWPORT ARCHITECTURE --- */
+        /* --- 3D VIEWPORT ARCHITECTURE (इमेज रेंडरिंग सुधार के साथ) --- */
         .logo-3d-viewport {
             width: 125px; 
             height: 125px;
@@ -83,11 +88,13 @@
             backface-visibility: hidden; 
         }
 
+        /* 👑 इमेज को टूटने से बचाने के लिए लेआउट री-कंट्रोल */
         .card-side img {
-            width: 92%;
-            height: 92%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.5));
+            border-radius: 14px;
+            display: block;
         }
 
         .side-front { transform: rotateY(0deg) translateZ(3px); }
@@ -134,6 +141,7 @@
             width: 100%; 
             animation: mcaAxisRotation 6s linear infinite; 
             filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.7));
+            display: block;
         }
 
         .mca-lock-aside:hover .mca-satellite-spin {
@@ -145,7 +153,7 @@
             to { transform: rotateY(360deg); } 
         }
 
-        /* --- MAIN LOWER CONTAINER AREA --- */
+        /* --- MAIN LOWER GLASS CONTAINER AREA --- */
         .lower-section-container {
             width: 100%;
             padding: 20px 0 80px 0; 
@@ -204,7 +212,11 @@
             font-size: 1rem;
         }
 
-        /* --- BING/GOOGLE SEARCH RESULT LOGIC --- */
+        .search-box-inner input::placeholder {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        /* --- SEARCH OUTLINE DISPLAY RESULTS --- */
         .serp-output-grid {
             max-width: 750px;
             margin: 15px auto 0;
@@ -229,7 +241,6 @@
             height: 32px;
             border-radius: 50%;
             border: 1.5px solid #ffffff;
-            /* 👑 रिपॉजिटरी की फाइल का सटीक नाम सेट किया */
             background: url('RJS_JPG.jpg') no-repeat center center;
             background-size: cover;
             flex-shrink: 0;
@@ -241,7 +252,7 @@
         .serp-headline { color: #ffffff; font-size: 1.1rem; font-weight: 700; text-decoration: none; }
         .serp-snippet { color: #ffffff; font-size: 0.88rem; line-height: 1.4; margin-top: 3px; }
 
-        /* --- JYOTI AGENT MODULE --- */
+        /* --- JYOTI AGENT CORE INTERACTIVE INFRASTRUCTURE --- */
         .jyoti-interactive-card { padding: 35px; }
         
         .jyoti-headline-flex {
@@ -276,7 +287,6 @@
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
         }
 
-        /* 👑 एलीट ग्लोइंग नियॉन एक्टिवेशन सून टैग */
         .activation-glint-tag {
             background: #ffffff;
             color: #030914;
@@ -315,12 +325,13 @@
             cursor: pointer;
             letter-spacing: 1px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .language-switch-btn { background: rgba(0, 242, 255, 0.25); display: none; }
         .explore-trigger-btn:hover, .language-switch-btn:hover { background: #ffffff; color: #030914; box-shadow: 0 0 25px rgba(255, 255, 255, 0.8); }
 
-        /* --- HIDDEN ARCHITECTURE VAULT --- */
+        /* --- HIDDEN VAULT NODE --- */
         .jyoti-hidden-vault { display: none; opacity: 0; margin-top: 25px; transition: opacity 0.4s ease; }
 
         .j-photo-display-box {
@@ -355,6 +366,7 @@
             .rjs-double-card { width: 75px; height: 75px; }
             .legal-absolute-title { font-size: 0.95rem; letter-spacing: 1px; }
             .mca-lock-aside { width: 65px; margin-left: 8px; }
+            
             .lower-section-container { margin-top: 120px; padding-top: 10px; }
             .search-wrapper, .jyoti-system-wrapper { padding: 0 10px; }
             .jyoti-interactive-card { padding: 20px 15px; }
@@ -368,11 +380,10 @@
 </head>
 <body>
 
-    <!-- ================= 1. टॉप ফিক্সড হেডার ================= -->
+    <!-- ================= 1. टॉप फिक्स्ड हेडर ================= -->
     <header>
         <div class="logo-3d-viewport">
             <div class="rjs-double-card">
-                <!-- 👑 इमेज का सटीक रिपॉजिटरी नाम सेट किया (RJS_JPG.jpg) -->
                 <div class="card-side side-front"><img src="RJS_JPG.jpg" alt="RJS Front"></div>
                 <div class="card-side side-back"><img src="RJS_JPG.jpg" alt="RJS Back"></div>
             </div>
@@ -381,7 +392,6 @@
             <div class="legal-absolute-title">RAJPUTANAJYOTI SYSTEM06 (OPC) PRIVATE LIMITED</div>
         </div>
         <div class="mca-lock-aside">
-            <!-- 👑 इमेज का सटीक रिपॉजिटरी नाम सेट किया (MCA_JPG.jpg) -->
             <img src="MCA_JPG.jpg" class="mca-satellite-spin" alt="MCA Government Verified">
         </div>
     </header>
@@ -389,7 +399,7 @@
     <!-- ================= 2. मुख्य सामग्री क्षेत्र ================= -->
     <div class="lower-section-container">
         
-        <!-- सर्च इंजन मॉड्यूल -->
+        <!-- इंटेलिजेंस सर्च इंजन मॉड्यूल -->
         <div class="search-wrapper">
             <div class="search-engine-panel">
                 <h2>RJS INTELLIGENCE SEARCH CORPS</h2>
@@ -417,7 +427,7 @@
                     <button class="language-switch-btn" id="rjs-lang-toggle">Translate to Hindi</button>
                 </div>
 
-                <!-- छिपे हुए आर्किटेक्चर ब्लॉक नोड्स -->
+                <!-- छिपा हुआ आर्किटेक्चर वॉल्ट -->
                 <div class="jyoti-hidden-vault" id="jyoti-architecture-vault">
                     
                     <div class="j-photo-display-box">
@@ -448,18 +458,18 @@
                             <div class="secure-disclaimer">
                                 <strong>⚠️ Important AI, Server, & Professional Advice Disclaimer:</strong>
                                 <br><strong>AI & Server Limitations:</strong> AI technologies are subject to errors and computational anomalies[cite: 1]. Jyoti Agent may occasionally provide inaccurate info[cite: 1]. The company bears zero responsibility for delayed responses caused by external third-party public or government server downtimes[cite: 1].
-                                <br><br><strong>Professional Advice Mandatory:</strong> Any info regarding healthcare, medicines, financial compliance, or banking data is strictly for informational purpose[cite: 1]. It is NOT a substitute for professional consultation[cite: 1]. For any medical queries, users MUST consult a qualified doctor; for legal or financial disputes, consultation with high-level professional advisors is mandatory[cite: 1].
+                                <br><br><strong>Professional Advice Mandatory:</strong> Any info regarding healthcare, medicines, financial compliance, or banking data is strictly for informational purpose[cite: 1]. It is NOT a substitute for professional consultation[cite: 1]. For any medical queries, users MUST consult a qualified doctor; for legal or banking disputes, consultation with high-level professional advisors is mandatory[cite: 1].
                             </div>
                         </div>
 
                         <!-- HINDI DATA -->
                         <div id="lang-block-hi" class="lang-block">
                             <h3>मुख्य विज़न (Hero Section)</h3>
-                            <p>ज्योति充值: कस्टमाइज्ड 'इंटेन्ट-बेस्ड' एआई और कोर आर्किटेक्चर। ज्योति एजेंट एक व्यावहारिक, इंटेन्ट-बेस्ड (Intent-Based) एआई है जो रोज़मर्रा के कामों को सीधा और आसान बनाने के लिए बनाया गया है[cite: 1]। गूगल के शक्तिशाली एलएलएम (LLM) की कंप्यूटिंग पावर और क्लाउडफ्लेयर वर्कर्स (Cloudflare Workers) की सुपर-फास्ट स्पीड के आधार पर तैयार यह सिस्टम बिना किसी देरी के वास्तविक परिणाम देता है[cite: 1]। इसका पूरा वेबहुक (Webhook) मैकेनिज्म पूरी तरह से सुरक्षित है और यह विशेष रूप से केवल राजसूताना ज्योति सिस्टम (RJS) के अपने आने वाले इलेक्ट्रॉनिक गैजेट्स और हार्डवेयर को आपस में सिंक करने के लिए उपयोग किया जाएगा[cite: 1]।</p>
+                            <p>ज्योति एजेंट: कस्टमाइज्ड 'इंटेन्ट-बेस्ड' एआई और कोर आर्किटेक्चर। ज्योति एजेंट एक व्यावहारिक, इंटेन्ट-बेस्ड (Intent-Based) एआई है जो रोज़मर्रा के कामों को सीधा और आसान बनाने के लिए बनाया गया है[cite: 1]। गूगल के शक्तिशाली एलएलएम (LLM) की कंप्यूटिंगパワー और क्लाउडफ्लेयर वर्कर्स (Cloudflare Workers) की सुपर-फास्ट स्पीड के आधार पर तैयार यह सिस्टम बिना किसी देरी के वास्तविक परिणाम देता है[cite: 1]। इसका पूरा वेबहुक (Webhook) मैकेनिज्म पूरी तरह से सुरक्षित है और यह विशेष रूप से केवल राजसूताना ज्योति सिस्टम (RJS) के अपने आने वाले इलेक्ट्रॉनिक गैजेट्स और हार्डवेयर को आपस में सिंक करने के लिए उपयोग किया जाएगा[cite: 1]।</p>
 
                             <h3>वर्तमान लाइव फीचर्स (अभी क्या-क्या काम करता है)</h3>
                             <ul class="bullet-matrix">
-                                <li><strong>बहुभाषी वॉयस संवाद (बोलने की क्षमता):</strong> यूज़र सीधे बात करके या टेक्स्ट लिखकर संवाद कर सकते हैं[cite: 1]। ज्योति एजेंट को इस तरह तैयार किया गया है कि यह यूज़र्स से मराठी, गुजराती, पंजाबी, बंगाली, hindi और इंग्लिश जैसी प्रमुख भाषाओं में सीधे बात कर सकेगा (बोल सकेगा)[cite: 1]।</li>
+                                <li><strong>बहुभाषी वॉयस संवाद (बोलने की क्षमता):</strong> यूज़र सीधे बात करके या टेक्स्ट लिखकर संवाद कर सकते हैं[cite: 1]। ज्योति एजेंट को इस तरह तैयार किया गया है कि यह यूज़र्स से मराठी, गुजराती, पंजाबी, बंगाली, हिंदी और इंग्लिश जैसी प्रमुख भाषाओं में सीधे बात कर सकेगा (बोल सकेगा)[cite: 1]।</li>
                                 <li><strong>इंटेन्ट-बेस्ड डिवाइस कमांड्स:</strong> सिर्फ आवाज़ के निर्देश पर कॉल लगाना, मैसेज भेजना, और अलार्म सेट करना जैसे दैनिक काम यह बखूबी निपटाता है[cite: 1]।</li>
                                 <li><strong>पीडीएफ और इमेज एनालाइजिंग (Document Parser):</strong> यह किसी भी पीडीएफ (PDF) फाइल और इमेज (फोटो) का गहरा विश्लेषण कर सकता है और डेटा तुरंत निकाल सकता है[cite: 1]।</li>
                                 <li><strong>नासा (NASA) एवं यूएस फूड डिपार्टमेंट (USDA) इंटेलिजेंस इंटीग्रेशन:</strong> नासा की पब्लिक एपीआई और यूएस फूड डिपार्टमेंट के डेटाबेस का सफल एकीकरण कर लिया गया है, जिसके तहत फसल बीमा (Fasal Bima) दावों के आकलन हेतु सैटेलाइट इमेजरी विश्लेषण और ज़मीन की नमी व सूक्ष्म मौसम पैटर्न का विश्लेषण लाइव प्रदान किया जाता है[cite: 1]।</li>
